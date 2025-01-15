@@ -3,6 +3,7 @@
 \usepackage{palatino}
 \usepackage{svg}
 \usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
 
 \oddsidemargin -.5in
 \evensidemargin -.5in
@@ -27,159 +28,303 @@
       \setlength{\leftmargin}{0.2in}}}{\end{list}}
 
 
+% Theme Color
+\definecolor{themecolor}{RGB}{102,0,6}
+
+% Link
+\newcommand{\link}[2]{\href{#2}{\textcolor{themecolor}{#1}}}
+
+% Contact Info
+\newcommand{\ContactInfo}[8]{
+\begin{tabular}{@{}p{3.0in}p{3in}}
+
+#1 & \hspace{.01cm}\raisebox{-0.2ex}{\includesvg[height=1.8ex]{src/telephone.svg}} ~\textcolor{themecolor}{#5} \vspace{.06cm} \\
+
+#2 & \raisebox{-0.2ex}{\includesvg[height=1.8ex]{src/email.svg}} ~\textcolor{themecolor}{#6} \vspace{.06cm} \\
+
+#3 & \hspace{.06cm}\raisebox{-0.2ex}{\includesvg[height=1.9ex]{src/i.svg}}\hspace{.08cm} ~\textcolor{themecolor}{#7} \vspace{.06cm} \\
+
+#4 & \hspace{-.01cm}\raisebox{-0.2ex}{\includesvg[height=1.7ex]{src/Twitter X.svg}} ~\textcolor{themecolor}{#8}
+\end{tabular}
+}
+
+% Section
+\newcommand{\SectionTitle}[1]{
+\vspace{-.1cm}
+\section{#1}
+\vspace{.2cm}
+}
+
+% Education
+\newcommand{\EducationItem}[6]{
+  \vspace{-.2cm}
+  {\bf #1}, #2 \\
+  \vspace{-.3cm}
+  \begin{list1}
+  \item[] #3 ~ ~ #6 \hfill #4
+  \vspace*{.025in}
+  \item[] #5
+  \end{list1}
+}
+
+% Academic Experience
+\newcommand{\institute}[3]{{\bf #1}, #2, #3}
+
+\newcommand{\academicexperience}[3]{
+  \vspace{-.2cm}
+  {\em #1} \hfill #2 \newline
+  #3
+}
+
+% Publications
+\newcommand{\PubItem}[5]{
+  \vspace{-.2cm}
+  #2. \href{#3}{\textcolor{themecolor}{#1}}. In \textit{#4}. \\ {#5}
+}
+
+% Papers
+\newcommand{\PaperItem}[4]{
+  \vspace{-.2cm}
+  #2. \href{#3}{\textcolor{themecolor}{#1}}. \\ {#4}
+}
+
+% Presentations
+\newcommand{\PreItem}[3]{
+  \vspace{-.2cm}
+  \href{#2}{\textcolor{themecolor}{#1}}. \\ {#3}
+}
+
+% Professional Experience
+\newcommand{\ProfItem}[5]{
+  \vspace{-.2cm}
+  {\bf #1}, #2 \vspace{.1cm} \newline
+  {\em #3} \hfill {#4} \newline
+  #5
+}
+
+% Services
+\newcommand{\ServiceItem}[5]{
+  \vspace{-.2cm}
+  {\bf #1}, #2 \vspace{.1cm} \newline
+  {\em #3} \hfill {#4} \newline
+  #5
+}
+
+
 
 \begin{document}
 
-\name{Chenyang Zhang \vspace*{.1in}}
+\name{Chenyang Zhang ~ \href{http://www.chenyang.me}{\textcolor{themecolor}{\normalsize \underline{website}}}}
 
 \begin{resume}
 \section{Contact Information}
 \vspace{.05in}
-\begin{tabular}{@{}p{3in}p{4in}}
-Department of Computer Science   & {\it Voice:}    (217) 979-1621 \\         
-University of Illinois Urbana-Champaign & {\it E-mail:} \href{mailto:zhang414@illinois.edu}{zhang414@illinois.edu}\\
-Urbana, IL  61801 USA  & {\it Website:} \href{http://www.chenyang.me}{www.chenyang.me} \\     
-\end{tabular}
+\ContactInfo
+{School of Interactive Computing}{College of Computing}{Georgia Institute of Technology}{Atlanta, GA 30308 USA}
+{\href{sms:+12179791621}{(217) 979-1621}}
+% {(217) 979-1621}
+{\href{mailto:chenyang.zhang@gatech.edu}{chenyang.zhang@gatech.edu}}
+{\href{http://www.chenyang.me}{www.chenyang.me}}
+{\href{https://twitter.com/chenyang_zh}{@chenyang\_zh}}
 
 
+%%% Research Interests %%%
+\vspace{-.3cm}
 \section{Research Interests}
-\textbf{Human-Computer Interaction}, Creative Process, Interaction Design, Social Computing,\\ Data Visualization
-
-\section{Education}
-% {\bf Carnegie Mellon University}, Pittsburgh, Pennsylvania USA\\
-% %{\em Department of Statistics} 
-% \vspace*{-.1in}
-% \begin{list1}
-% \item[] Ph.D. Candidate, Statistics, December 2001 (expected
-%   graduation date: May 2003)
-% \begin{list2}
-% \vspace*{.05in}
-% \item Dissertation Topic:  ``Nonstationary Covariance Models for
-%   Spatial Data and Regression Problems'' 
-% %\item Dissertation Topic:  ``Hierarchical Models for Multiple Ratings
-% %  in Performance-Based\\ \hspace*{1.23in} Student Assessments.'' 
-% \item Advisor:  Mark J. Schervish
-% \end{list2}
-% \vspace*{.05in}
-% \item[] M.S., Statistics,  May 2000
-% \end{list1}
-
-{\bf University of Illinois Urbana-Champaign}, Urbana, Illinois USA\\
-%{\em Department of Mathematics and Statistics} 
-\vspace*{-.1in}
-\begin{list1}
-\item[] Professional Master of Computer Science (MCS), Aug. 2022 - Exp. Dec. 2023
-\vspace*{.025in}
-\item[] Advisor:  Sarah Sterman, Elahe Soltanaghai
-\end{list1}
-
-{\bf ShanghaiTech University}, Shanghai, Shanghai China\\
-%{\em Department of Mathematics and Statistics} 
-\vspace*{-.1in}
-\begin{list1}
-\item[] B.E., Computer Science, Sep. 2018 - Jun. 2022
-\vspace*{.025in}
-\item[] GPA: 3.57/4.0
-\end{list1}
+\textbf{Human-Computer Interaction}, AR/VR Interaction, Immersive Analytics, Spatial Computing,\\ Data Visualization, Creative Process
 
 
-\section{Academic Experience}
+%%% Education %%%
+\SectionTitle{Education}
 
-{\bf Harvard University}, Cambridge, Massachusetts USA
+\EducationItem{Georgia Institute of Technology}{Atlanta, Georgia USA}
+{Ph.D. in Human-Centered Computing}{Aug. 2024 - present}
+{Advisor: \href{https://ivi.cc.gatech.edu/people.html}{Yalong Yang}}
+{}
+
+\EducationItem{University of Illinois Urbana-Champaign}{Urbana, Illinois USA}
+{Master of Computer Science (MCS)}{Aug. 2022 - Dec. 2023}
+{Advisor: \href{https://elahe.web.illinois.edu/}{Elahe Soltanaghai}, \href{https://www.ssterman.web.illinois.edu/}{Sarah Sterman}}
+{GPA: 3.82/4.0}
+
+\EducationItem{\href{https://www.shanghaitech.edu.cn/eng}{ShanghaiTech University}}{Shanghai, Shanghai China}
+{B.Eng. in Computer Science}{Sep. 2018 - Jun. 2022}
+{Advisor: \href{https://faculty.sist.shanghaitech.edu.cn/liquan/}{Quan Li}}
+{GPA: 3.57/4.0}
+
+
+%%% Research Experience %%%
+\SectionTitle{Research Experience}
 
 \vspace{-.2cm}
-{\em Graduate Research Assistant (Advisor: Hanspeter Pfister)} \hfill {\bf Apr, 2023 - present}\\
-Exploratory work on Large Language Model and Data Visualization.
 
-{\bf University of Illinois Urbana-Champaign}, Urbana, Illinois USA
+% GT
+\vspace{-.1cm}
+\institute{Georgia Institute of Technology}{Atlanta}{Georgia USA}
+\vspace{-.1cm}
 
+\academicexperience
+{Graduate Research Assistant (Advisor: \href{https://ivi.cc.gatech.edu/people.html}{Yalong Yang})}
+{2024 - present}
+{\link{I believe everyone should have the power to shape their own immersive experiences.}{https://www.chenyang.me/work/research-proposal-of-phd} 
+My research includes: 1) designing intuitive \textbf{\textit{embodied interactions}} for portable, low-cost VR, 2) creating accessible \textbf{\textit{spatial content creation}} platforms to broaden creative participation, and 3) developing interaction models for \textbf{\textit{spatial content sharing}} to enhance remote connections.
+}
+
+% Harvard
+\institute{Harvard University}{Visual Computing Group}{Cambridge, Massachusetts USA}
+\vspace{-.1cm}
+
+\academicexperience
+{Research Assistant (Advisors: \href{https://chenzhutian.org/}{Zhutian Chen}, \href{https://vcg.seas.harvard.edu/people/hanspeter-pfister}{Hanspeter Pfister})}
+{2023}
+{\link{Adaptive situated visualization through human-AI collaboration.}{https://www.chenyang.me/work/adaptive-situated-visualization} 
+Designing a declarative visualization grammar compatible with LLMs, and an real-time controller to adapt the AR visualization according to designer's requirements and contextual information.
+}
+
+% UIUC
+\vspace{-.1cm}
+\institute{University of Illinois Urbana-Champaign}{Urbana}{Illinois USA}
+\vspace{-.1cm}
+
+\academicexperience
+{Graduate Research Assistant (Advisor: \href{https://elahe.web.illinois.edu/}{Elahe Soltanaghai})}
+{2022 - 2023}
+{\link{Intuitive gaze-depth interaction for hands-free selection in VR.}{https://www.chenyang.me/work/focusflow} 
+Developing a hands-free VR selection method that leverages binocular gaze depth information and conducting multiple user studies to improve usability and learnability through iterative design.
+}
+
+\academicexperience
+{Graduate Research Assistant (Advisor: \href{https://www.ssterman.web.illinois.edu/}{Sarah Sterman})}
+{2023}
+{\link{Qualitative study on values of documentation in creative learning process.}{https://www.chenyang.me/work/physcom-documentation} 
+Exploring the impact of documentation on teaching and learning in Physical Computing courses through open coding on course syllabi and semi-structured interviews with instructors.
+}
+
+\vspace{-.1cm}
+\institute{\href{https://www.shanghaitech.edu.cn/eng/}{ShanghaiTech University}}{Shanghai}{China}
+\vspace{-.1cm}
+
+\academicexperience
+{Undergraduate Research Assistant (Advisor: \href{https://faculty.sist.shanghaitech.edu.cn/liquan/}{Quan Li})}
+{2021 - 2022}
+{Visual analytics systems for e-commerce, medical research, and system programming.}
+
+\academicexperience
+{Undergraduate Research Assistant (Advisor: \href{https://svip-lab.github.io/}{Shenghua Gao})}
+{2020 - 2021}
+{Computer vision research on image segmentation applied for medical imaging.}
+
+
+%%% Publications %%%
+\SectionTitle{Publications}
+
+\PubItem{A Two-Phase Visualization System for Continuous Human-AI Collaboration in Sequelae Analysis and Modeling}
+{Yang Ouyang, \textbf{Chenyang Zhang}, He Wang, Tianle Ma, Chang Jiang, Yuheng Yan, Zuoqin Yan, Xiaojuan Ma, Chuhan Shi, Quan Li}
+{https://arxiv.org/abs/2407.14769}
+{IEEE Transactions on Visualization and Computer Graphics (Proc. VIS 2024)}
+{VIS 2024 $\cdot$ Short Paper}
+
+\PubItem{FocusFlow: 3D Gaze-Depth Interaction in Virtual Reality Leveraging Active Visual Depth Manipulation}
+{\textbf{Chenyang Zhang}*, Tiansu Chen*, Eric Shaffer, Elahe Soltanaghai}
+{https://dl.acm.org/doi/10.1145/3613904.3642589}
+{The ACM CHI conference on Human Factors in Computing Systems}
+{CHI 2024 $\cdot$ Full Paper}
+
+\PubItem{FocusFlow: Leveraging Focal Depth for Gaze Interaction in Virtual Reality}
+{\textbf{Chenyang Zhang}*, Tiansu Chen*, Rohan Nedungadi, Eric Shaffer, Elahe Soltanaghai}
+{https://dl.acm.org/doi/10.1145/3586182.3615818}
+{The ACM Symposium on User Interface Software and Technology}
+{UIST 2023 $\cdot$ Demo}
+
+\PubItem{Understanding Auto-Scheduling Optimizations for Model Deployment via Visualizations}
+{Laixin Xie, \textbf{Chenyang Zhang}, Ruofei Ma, Xing Jiang, Xingxing Xing, Quan Li}
+{https://arxiv.org/abs/2308.04724}
+{IEEE VIS 2023 Poster Program}
+{VIS 2023 $\cdot$ Poster}
+
+\PubItem{Beyond Generating Code: Evaluating GPT on a Data Visualization Course}
+{Zhutian Chen, \textbf{Chenyang Zhang}, Qianwen Wang, Jakob Troidl, Simon Warchol, Johanna Beyer, Nils Gehlenborg, Hanspeter Pfister}
+{https://arxiv.org/abs/2306.02914}
+{IEEE VIS Workshop on Visualization Education, Literacy, and Activities}
+{VIS 2023 $\cdot$ EduVis Workshop}
+
+\PubItem{Leveraging Historical Medical Records as a Proxy via Multimodal Modeling and Visualization to Enrich Medical Diagnostic Learning}
+{Yang Ouyang, Yuchen Wu, He Wang, \textbf{Chenyang Zhang}, Furui Cheng, Chang Jiang, Lixia Jin, Yuanwu Cao, Quan Li}
+{https://arxiv.org/abs/2307.12199}
+{IEEE Transactions on Visualization and Computer Graphics (Proc. VIS 2023)}
+{VIS 2023 $\cdot$ Full Paper}
+
+\PubItem{PromotionLens: Inspecting Promotion Strategies of Online E-commerce via Visual Analytics}
+{\textbf{Chenyang Zhang}, Xiyuan Wang, Chuyi Zhao, Yijing Ren, Tianyu Zhang, Zhenhui Peng, Xiaomeng Fan, Xiaojuan Ma, Quan Li}
+{https://ieeexplore.ieee.org/document/9903289}
+{IEEE Transactions on Visualization and Computer Graphics (Proc. VIS 2022)}
+{VIS 2022 $\cdot$ Full Paper}
+
+% \PubItem{Chest X-Ray Diagnostic Quality Assessment: How Much Is Pixel-Wise Supervision Needed?}
+% {Junhao Hu, \textbf{Chenyang Zhang}, Kang Zhou, Shenghua Gao}
+% {https://ieeexplore.ieee.org/document/9703342}
+% {IEEE Transactions on Medical Imaging 41.7}
+% {TMI 2022 $\cdot$ Full Paper}
+
+
+%%% Papers in preparation %%%
+\SectionTitle{Papers in preparation}
+
+% \PaperItem{Adapting Visualizations in Context: A Natural Language Grammar Supported by Large Language Models}
+% {\textbf{Chenyang Zhang}*, Ruxun Xiang*, Hanspeter Pfister, Zhutian Chen}
+% {https://www.chenyang.me/work/adaptive-situated-visualization}
+% {In Progress}
+
+\PaperItem{Documentation Reflects and Creates Community: Instructor Perspectives on Understanding Documentation in Physical Computing Education}
+{Andrew Chen, Jinyoung Hur, \textbf{Chenyang Zhang}, Sarah Sterman}
+{https://www.chenyang.me/work/physcom-documentation}
+{Under Review $\cdot$ Full Paper}
+
+
+%%% Conference Presentations %%%
+\SectionTitle{Conference Presentations}
+
+\PreItem{FocusFlow: 3D Gaze-Depth Interaction in Virtual Reality Leveraging Active Visual Depth Manipulation}{https://programs.sigchi.org/chi/2024/program/content/146886}{CHI 2024, Honolulu, Hawaii, USA.}
+
+\PreItem{PromotionLens: Inspecting Promotion Strategies of Online E-commerce via Visual Analytics}{https://youtu.be/6AJ0C3FZKyY?t=791}{VIS 2022, Oklahoma City, Oklahoma, USA.}
+
+
+%%% Honors and Awards %%%
+\SectionTitle{Honors and Awards}
 \vspace{-.2cm}
-{\em Graduate Research Assistant (Advisor: Sarah Sterman)} \hfill {\bf January, 2023 - present}\\
-Qualitative research on the role of documentation systems in creative process.
 
-% \vspace{-.1cm}
-{\em Graduate Research Assistant (Advisor: Elahe Soltanaghai)} \hfill {\bf January, 2023 - present}\\
-Gaze-based intuitive interaction design for VR/AR headsets.
+ShanghaiTech University Merit Student (top 2\%) \hfill 2021 \\
+Meritorious Winner of COMAP's Mathematical Contest in Modeling (top 7\%) \hfill 2021\\
+Second Prize of Shanghai College Students Social Survey Competition \hfill 2019
 
-{\bf ShanghaiTech University}, Shanghai, China
 
+%%% Professional Experience %%%
+\SectionTitle{Professional Experience}
+
+\ProfItem{Deemos Tech}{Shanghai, China}{Product Manager}{2021 - 2022}{Designing information architecture and user interface of an interactive generative AI painting app.}
+
+\ProfItem{DIV Lab}{Shanghai, China}{Design Intern}{2021 - 2022}{Working with designers and scientists to do case studies, needs finding, information design and VI design for a newly established satellite science popularization center.}
+
+
+%%% Teaching %%%
+\SectionTitle{Teaching} 
+
+\ServiceItem{ShanghaiTech University}{Shanghai, China}{Teaching Assistant}{2021 - 2022}{Introduction to Information Science \& Technology, Fall 2021.\\ Design Thinking and Social Design in China, Fall 2021.}
+
+\ServiceItem{Kedu No. 1 Primary School}{Qiannan Buyi and Miao Autonomous Prefecture, China}{Volunteer Teacher}{Jul. 2019}{Providing general education courses to primary school students, including science, art, sports and adolescent education. Fieldwork on China's poverty reduction initiatives. \link{[presentation video]}{https://www.bilibili.com/video/BV16J411U7kX/}}
+
+
+%%% Skills %%%
+\SectionTitle{Skills} 
 \vspace{-.2cm}
-{\em Undergraduate Research Assistant (Advisor: Quan Li)} \hfill {\bf June, 2021 - August, 2022}\\
-Designing visual analytics systems in various scenarios, including e-commerce, clinical medicine, and computer system research.
 
-%\vspace{-.1cm}
-{\em Undergraduate Research Assistant (Advisor: Shenghua Gao)} \hfill {\bf November, 2020 - May, 2021}\\
-Testing computer vision models applied for medical imaging.
-
-
-\section{Publications}
-
-\textbf{Chenyang Zhang}, Xiyuan Wang, Chuyi Zhao, Yijing Ren, Tianyu Zhang, Zhenhui Peng, Xiaomeng Fan, Xiaojuan Ma, Quan Li. \href{https://ieeexplore.ieee.org/document/9903289}{\textbf{PromotionLens: Inspecting Promotion Strategies of Online E-commerce via Visual Analytics}}. In \textit{IEEE Transactions on Visualization and Computer Graphics (Proc. VIS 2022)}.
-
-Junhao Hu, \textbf{Chenyang Zhang}, Kang Zhou, Shenghua Gao. \href{https://ieeexplore.ieee.org/document/9703342}{\textbf{Chest X-Ray Diagnostic Quality Assessment: How Much Is Pixel-Wise Supervision Needed?}}. In \textit{IEEE Transactions on Medical Imaging 41.7}.
-
-
-\section{Papers in preparation}
-
-\textbf{Chenyang Zhang}, Tiansu Chen, Rohan Nedungadi, Elahe Soltanaghai. \textbf{FocusFlow: Leveraging the Depth Dimension for Gaze-Based Interaction in Virtual Reality}.
-
-Laixin Xie, \textbf{Chenyang Zhang}, Quan Li. \textbf{ASight: Understanding Auto-Scheduling Optimizations for Model Deployment through Visual Analytics}.
-
-Yang Ouyang, \textbf{Chenyang Zhang}, He Wang, Tianle Ma, Chang Jiang, Yuheng Yan, Zuoqin Yan, Xiaojuan Ma, Quan Li. \textbf{Towards Better Modeling of Sequelae-Related Medical Records: A Multi-Phased Co-design Process}.
-
-
-\section{Conference Presentations}
-
-\textbf{Chenyang Zhang}, Xiyuan Wang, Chuyi Zhao, Yijing Ren, Tianyu Zhang, Zhenhui Peng, Xiaomeng Fan, Xiaojuan Ma, Quan Li. \textbf{PromotionLens: Inspecting Promotion Strategies of Online E-commerce via Visual Analytics}. VIS 2022, Oklahoma City, Oklahoma, USA.
-
-
-\section{Honors and Awards} 
-ShanghaiTech University Merit Student (top 2\%), 2021 \\
-Meritorious Winner of COMAP's Mathematical Contest in Modeling (top 7\%), 2021\\
-Second Prize of Shanghai College Students Social Survey Competition (Zhixing Cup), 2019
-
-
-\section{Professional Experience}
-
-{\bf Deemos Tech}, Shanghai, China
-
-\vspace{-.3cm}
-{\em Product Manager} \hfill {\bf September, 2021 - August, 2022}\\
-Collaborating with users and developers, designed the information architecture and user interface of an interactive AIGC painting app.
-
-{\bf DIV Lab Design Team}, Shanghai, China
-
-\vspace{-.3cm}
-{\em Design Assistant} \hfill {\bf
-  March, 2021 - January, 2022}\\
-Worked with designers, scientists, visitors and managers to do case studies, needs finding, information design and VI design for a Satellite Science Popularization Center.
-
-
-\section{Services} 
-
-{\bf ShanghaiTech University}, Shanghai, China
-
-\vspace{-.2cm}
-{\em Teaching Assistant} \hfill {\bf September, 2021 - January, 2022}\\
-Teaching assistant in CS and Design courses. Duties included office hours and project guidance. Shared responsibility for lectures, exams, homework assignments, and grades. 
-\begin{list2}
-\item \textit{Introduction to Information Science \& Technology}, Fall 2021.
-\item \textit{Design Thinking and Social Design in China}, Fall 2021.
-\end{list2}
-
-
-\section{Skills} 
-
-\begin{list2}
-\item \textbf{Computer Science}: Data Visualization, Computer Vision and Graphics, AI\&ML, IoT, NLP, Database, Robotics.
-\vspace{.1cm}
-\item \textbf{Design}: Human-Centered Design, Prototyping and Testing, Interaction \& Graphic Design, 3D Modeling, Animation Design.
-\vspace{.1cm}
-\item \textbf{HCI Research}: Observational Study, User Study, Quantitative \& Qualitative Data Analysis.
-\vspace{.1cm}
-\item \textbf{Languages}: Mandarin Chinese, English, Visualization \raisebox{-0.5ex}{\includesvg[height=2.5ex]{src/collision.svg}}. Python, C/C++, JavaScript.
-\end{list2}
-
+\textbf{Computer Science}: Data Visualization, Computer Graphics, AI\&ML, Web Programming.
+\vspace{.15cm} \newline
+\textbf{Research}: Human-Centered Design, Quantitative \& Qualitative Research, Interview, Iterative Design.
+\vspace{.15cm} \newline
+\textbf{Frameworks and Tools}: Unity, ARKit, Blender, Cinema 4D, Adobe Ae, Figma.
+\vspace{.15cm} \newline
+\textbf{Languages}: Mandarin Chinese, English, Visualization \raisebox{-0.5ex}{\includesvg[height=2.5ex]{src/collision.svg}}. Python, C/C++, JavaScript.
 
 \end{resume}
 \end{document}
